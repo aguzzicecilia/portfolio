@@ -10,11 +10,12 @@ html{
 body {
     font-size: var(--size-body);
     line-height: var(--lineh-body);
-    font-family: 'HelveticaNowDisplay';
     background-color: rgb(255, 255, 255);
     color: #000;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
+    font-family: 'HelveticaNowDisplay';
+    src: url('fonts/Helvetica-Now-Display-Medium.woff') format('woff');
+    font-weight: 500; /* Peso per la variante Medium */
+    font-style: normal;
 }
 
 /* Hide crollbar */
@@ -63,6 +64,7 @@ textarea:-moz-placeholder { color:#000; }
 body{
 /*    margin-top: calc(3vw + 35px);*/
     margin-top: calc(2vw + 30px);
+    font-family: 'HelveticaNowDisplay', Arial, Helvetica, sans-serif;
 }
 
 #header {
@@ -200,17 +202,24 @@ body{
 
 /* FOOTER
 -------------------------------------------------------------------------------*/
-.home #footer {
+/* FOOTER HOME */
+.footer-home {
     font-size: 18px;
-    margin-top: 0;
     margin-bottom: 10px;
     padding-bottom: 50px;
-}
-#footer {
-    font-size: 18px;
-    margin-bottom: 10px;
+    padding-left: 0; /* Nessun padding laterale */
+    padding-right: 0; /* Nessun padding laterale */
 }
 
+/* FOOTER PROJECT */
+.footer-project {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+    padding-left: 10px; /* Padding laterale */
+    padding-right: 10px; /* Padding laterale */
+}
 
 /* STYLE
 -------------------------------------------------------------------------------*/
