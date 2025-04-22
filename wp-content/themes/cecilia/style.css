@@ -1,6 +1,6 @@
 :root {
     --size-body: 18px;
-    --lineh-body: 100%;
+    --lineh-body: 90%;
 }
 html{
     overflow-y: auto;
@@ -214,7 +214,7 @@ textarea:-moz-placeholder { color:#000; }
         padding-bottom: 0;
     }
     .top-header {
-        font-size: 10vw;
+        font-size: 11vw;
         line-height: 9vw;
         padding-bottom: 10px;
     }
