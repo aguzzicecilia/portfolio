@@ -1,321 +1,495 @@
-:root {
-    --size-body: 18px;
-    --lineh-body: 90%;
-}
-html{
-    overflow-y: auto;
+/* ====== BASE TYPOGRAPHY ====== */
+body {
+  color: #000;
+  font-family: 'univers-next-pro-condensed', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.24px;
+  background: #fff;
 }
 
-@font-face {
-    font-family: 'ArialBlackCustom';
-    src: url('../fonts/arial_black.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+.site-header, .home-link, .project-title, .project-year, .project-cta, .bio-block, .bio-block h2, .bio-block p, .footer-col, .close-btn, .caption, .project-info-block, .project-info-text, .project-text-block, .project-text-block p {
+  font-family: 'univers-next-pro-condensed', sans-serif !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+}
+
+.project-media-full, .project-media-double, .project-text-block {
+  padding-top: 0 !important;
+}
+
+@media (max-width: 700px) {
+  .project-media-full, .project-media-double, .project-text-block {
+    padding-top: 0 !important;
+  }
+}
+
+.project-media-double + .caption,
+.project-media-full .caption {
+  width: 100%;
+  color: #000;
+  margin-top: 10px;
+  margin-bottom: 0;
+  letter-spacing: 0.24px;
+  padding-left: 0;
+  padding-right: 10px;
+  background: none;
+}
+
+@media (max-width: 700px) {
+  .project-media-double + .caption,
+  .project-media-full .caption {
+    padding-left: 0;
+    padding-right: 10px;
+  }
+}
+
+/* ====== HEADER ====== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  mix-blend-mode: difference;
+  color: #fff;
+  padding: 10px;
+  z-index: 1000;
+  font-weight: 750;
+  font-size: 12px;
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+}
+
+/* ====== GRID & PROJECTS FLEX ====== */
+.projects-section {
+  margin-top: 33px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.projects-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-thumb {
+  display: flex;
+  flex-direction: column;
+  width: calc((100% - 15 * 10px) / 16 * 2 + 10px); /* 2 colonne su 16, gap incluso */
+  margin-bottom: 80px;
+  background: #fff;
+  border-radius: 0;
+  text-decoration: none; /* Rimuove underline e stili di link predefiniti */
+}
+
+.project-thumb a {
+  display: block; /* Assicurati che l'intero blocco diventi cliccabile */
+  text-decoration: none; /* Nessun underline per l'intero blocco */
+  color: inherit; /* Mantieni il colore del testo originale */
+}
+
+.project-media {
+  aspect-ratio: 4/5;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-media img,
+.project-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-title {
+  font-weight: 750;
+  font-size: 12px;
+  line-height: 1.1;
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+  letter-spacing: 0.24px;
+}
+
+.project-collab {
+  font-size: 12px;
+  font-weight: 500;  /* Più leggero rispetto al titolo */
+}
+
+.project-title a {
+  color: inherit; /* Mantieni il colore del testo */
+  text-decoration: underline; /* Sottolinea il link per farlo evidenziare */
+}
+
+.project-year {
+  font-size: 12px;
+}
+
+.project-cta {
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+  font-weight: 750;
+  font-size: 12px;
+  color: #000;
+  margin-top: 10px;
+  letter-spacing: 0.24px;
+  text-decoration: none;
+}
+
+/* ====== BIO SECTION ====== */
+.bio-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 140px;
+  width: 100%; /* Assicurati che la sezione occupi tutta la larghezza */
+}
+
+.bio-block {
+  flex: 0 0 calc(25% - 10px); /* Ogni colonna occupa 4 colonne su 16 (25% larghezza meno il gap) */
+  margin-bottom: 80px;
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+  font-weight: 750;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+}
+
+.bio-block h2 {
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+  font-weight: 750;
+  font-size: 12px;
+  padding-bottom: 10px;
+  letter-spacing: 0.24px;
+}
+
+.bio-block p {
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+  font-weight: 750;
+  font-size: 12px;
+  line-height: 1.1;
+  letter-spacing: 0.24px;
+}
+
+/* ====== FOOTER ====== */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  margin-top: 140px;
+  background: #fff;
+}
+
+.footer-col {
+  flex: 0 0 calc((100% - 10px) / 2);
+  font-size: 12px;
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+  font-weight: 750;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+}
+
+/* ====== SPACING HELPERS ====== */
+.spacer-bottom-80 { margin-bottom: 80px !important; }
+.spacer-bottom-60 { margin-bottom: 60px !important; }
+.spacer-bottom-10 { margin-bottom: 10px !important; }
+.spacer-140 { margin-top: 140px !important; }
+.spacer-80 { margin-top: 80px !important; }
+
+/* ====== PROJECT INFO BLOCK ====== */
+.project-info-block {
+  position: fixed;
+  top: 33px;
+  left: 0;
+  width: 100vw;
+  background: transparent;
+  mix-blend-mode: difference;
+  color: #fff;
+  padding: 10px;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 750;
+  line-height: 1.1;
+  letter-spacing: 0.24px;
+}
+
+.project-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.project-info-text .project-title {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin-bottom: 0;
+}
+
+.project-info-text .project-year {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  margin-bottom: 0;
+}
+
+.spacer-bottom-10 {
+  height: 10px;
+  width: 100%;
+  display: block;
+}
+
+.close-btn {
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: 0.24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+
+.close-btn:hover {
+  opacity: 0.7;
+}
+
+/* ====== PROJECT MEDIA FULL ====== */
+.project-media-full {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 80px;
+  margin-bottom: 10px;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-media-full img,
+.project-media-full video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.project-media-full .caption {
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 750;
+  color: #000;
+  margin-top: 10px;
+  margin-bottom: 0;
+  letter-spacing: 0.24px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: none;
+}
+
+/* ====== PROJECT MEDIA DOUBLE ====== */
+.project-media-double {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.project-media-double .media-item {
+  flex: 0 0 calc((100% - 10px) / 2);
+  max-width: calc((100% - 10px) / 2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+.project-media-double .media-item img,
+.project-media-double .media-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.project-media-double + .caption {
+  width: 100%;
+  font-family: 'Univers Next Pro', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 750;
+  color: #000;
+  margin-top: 10px;
+  margin-bottom: 0;
+  letter-spacing: 0.24px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: none;
+}
+
+/* ====== PROJECT TEXT BLOCK ====== */
+.project-text-block {
+  max-width: calc(100% - 20px - 15 * 10px); /* 16 colonne con 10px margini e gap */
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-family: 'univers-next-pro-condensed', sans-serif;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+@media (max-width: 700px) {
+  .project-text-block {
+    max-width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+}
+
+/* ====== RESPONSIVE: Tablet (max 768px) ====== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Progetti: 2 su 12 colonne */
+  .project-thumb {
+    width: calc((100% - 5 * 10px) / 6); /* 12 colonne / 2 = 6 progetti per riga */
+    max-width: calc((100% - 5 * 10px) / 6);
+    margin-bottom: 60px;
   }
 
-body {
-    margin-top: calc(2vw + 30px);
-    font-family: 'ArialBlackCustom', sans-serif;
-    line-height: var(--lineh-body);
-    background-color: #fff;
-    color: #000;
+  /* Bio blocks: comportarsi come mobile, 6 colonne = 50% */
+  .bio-block {
+    flex: 0 0 calc((100% - 10px) / 2);
+    max-width: calc((100% - 10px) / 2);
+    margin-bottom: 60px;
+  }
+
+  /* Footer columns: uguale a mobile (2 colonne su 12) */
+  .footer-col {
+    flex: 0 0 calc((100% - 10px) / 2);
+    max-width: calc((100% - 10px) / 2);
+  }
 }
 
-/* Hide crollbar */
-::-webkit-scrollbar {
-    display: none;
-}
-body, select, input, textarea {color: #000;}
-a {
-    color: #000;
-    text-decoration: none;
-}
-/* Colore del link header-link su desktop */
-a.header-link {
-    color: #ffffff;
-    text-decoration: none;
-}
-a:hover {color: #c7c7c7;}
-::-moz-selection{background: rgba(0, 255, 13, 0.9); color: rgb(0, 0, 0); text-shadow: none;}
-::selection {background: rgba(0, 255, 13, 0.9); color: rgb(0, 0, 0); text-shadow: none;}
-a:link {-webkit-tap-highlight-color: rgb(255, 255, 255);}
-ins {background-color: rgb(255, 255, 255); color: #000; text-decoration: none;}
-mark {background-color: rgb(255, 255, 255); color: #000; font-style: italic; font-weight: bold;}
-/* Mozilla dosen't style place holders by default */
-input:-moz-placeholder { color:#000; }
-textarea:-moz-placeholder { color:#000; }
-.clearafter:after{
-    content: '';
-    display: block;
-    clear: both;
-}
-.align-right { text-align: right; }
+/* ====== RESPONSIVE: MOBILE (max 700px) ====== */
+@media (max-width: 700px) {
+  .projects-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 
-/* C O D E*/
-#header {
-    padding: 10px;
+  .project-thumb {
+    width: calc((100% - 10px) / 2);
+    max-width: calc((100% - 10px) / 2);
+    margin-bottom: 60px;
+  }
+
+  .bio-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 80px;
+    display: 100%;
+  }
+
+  .bio-block {
+    flex: 0 0 calc((100% - 10px) / 2);
+    max-width: calc((100% - 10px) / 2);
+    margin-bottom: 60px;
+    font-family: 'Univers Next Pro', Arial, sans-serif;
+    font-weight: 750;
+    font-size: 12px;
+    letter-spacing: 0.24px;
+  }
+
+  .site-footer {
+    gap: 10px;
+    margin-top: 80px;
+  }
+
+  .footer-col {
+    flex: 0 0 calc((100% - 10px) / 2);
+    max-width: calc((100% - 10px) / 2);
+    font-family: 'Univers Next Pro', Arial, sans-serif;
+    font-weight: 750;
+    font-size: 12px;
+    letter-spacing: 0.24px;
+  }
+
+  .project-info-block {
     position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: none;
-    mix-blend-mode: difference;
-    z-index: 1000;   
-}
-.top-header {
-    font-size: 3vw;
-    line-height: 3vw;
-    padding-bottom: 0;
-    color: #ffffff;
-    mix-blend-mode: difference;
-}
-.top-header a {
-    color: #ffffff;
-}
-.personal-details {
+    top: 33px;
+    left: 0;
+    width: 100vw;
     padding: 10px;
-    padding-top: 14px;
-    position: fixed;
-    top: 0;
-    left: 12.3%;
-    width: 65%;
-    color: #ffffff;
-    z-index: 1000;
-    font-size: 1.2vw;
-    line-height: 1.25vw;
-    mix-blend-mode: difference;
-}
-/* HOME
--------------------------------------------------------------------------------*/
-.thumbnail {
-    position: relative;
-    width: 100%;
-    margin-bottom: 10px;
-}
-.thumbnail img {
-    width: 100%;
-    display: block;
-}
-.thumbnail video {
-    width: 100%;
-    display: block;
-}
-.thumbnail h1 {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    margin: 0;
-    color: #FFF;
-    font-size: 18px;
-    line-height: 18px;
-    text-align: left;
-    mix-blend-mode: difference;
-    z-index: 1; /* Assicurati che h1 sia sopra il video */
-}
-.entry {
-    padding-top: 0px;
- }
-/* MARGINI HOME
--------------------------------------------------------------------------------*/
-.projects-wrapper {
-    padding: 5px 10px;
-}
-/* SINGLE PROJECTS
--------------------------------------------------------------------------------*/
-.project_col {
-    padding: 0 10px 10px;
-}
-.project_col.full {
-    flex: 0 0 100%;
-}
-.single-progetti .top-header {
-    padding-bottom: 0;
-}
-.single-progetti #header {
-    padding-bottom: 1px;
-}
-.description {
-    padding: 10px 10px;
-    column-gap: 20px;
-}
-.single-progetti #contenuti {
-    padding-top: 7vw;
-}
-.single-progetti h1.entry-title{
-    color: #000;
-    font-size: 3vw;
-    line-height: 0.8em;
-    padding-top: 5px;
-    padding-bottom: 15px;
-}
-.single-progetti .full-details{
-    padding-top: 10px;
-    margin-bottom: 10vw;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .close-btn {
+    margin-left: 0;
+    margin-top: 10px;
     padding-left: 0;
-    padding-right: 0;
-    border-top: 1px solid #000;
-    width: calc(100% - 20px);
+  }
+
+  .project-media-full {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+
+  .project-media-double {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 60px;
+    margin-bottom: 10px;
     margin-left: 10px;
-    margin-top: 3vw;
-}
-/* PAGE PROJECTS
--------------------------------------------------------------------------------*/
-.page-template-page-projects .column-heading{
-    padding: 0 10px;
-    margin-top: 3vw;
-}
-.page-template-page-projects .column-heading .order-date{
-    text-align: left;
-}
-/* FOOTER
--------------------------------------------------------------------------------*/
-/* FOOTER HOME */
-.footer-home {
-    font-size: 18px;
-    margin-bottom: 10px;
-    padding-bottom: 50px;
-    padding-left: 0; /* Nessun padding laterale */
-    padding-right: 0; /* Nessun padding laterale */
-}
-/* FOOTER PROJECT */
-.footer-project {
-    font-size: 18px;
-    margin-bottom: 10px;
-    padding-top: 0px;
-    padding-bottom: 50px;
-    padding-left: 10px; /* Padding laterale */
-    padding-right: 10px; /* Padding laterale */
-}
-/* STYLE
--------------------------------------------------------------------------------*/
-.col-md-6{
-    float: left;
-    width: 50%;
+    margin-right: 10px;
+  }
+
+  .project-media-double .media-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
-/* MOBILE
--------------------------------------------------------------------------------*/
-.mobile { display: none; }
-@media screen and (max-width: 960px) {
-    :root {
-        --size-body: 3.5vw;
-        --lineh-body: 1em;
-        
-        --size-smaller: 3.2vw;
-    }
-    .mobile { display: block; }
-    .desktop { display: none; }
-    body {
-        margin-top: calc(9vw + 21px);
-    }
-    body.home {
-        margin-top: calc(25vw + 21px);
-    }
-    #header {
-        padding-bottom: 0;
-    }
-    .top-header {
-        font-size: 11vw;
-        line-height: 9vw;
-        padding-bottom: 10px;
-    }
-    .personal-details.clearafter {
-        position: absolute;
-        z-index: 0;
-        left: 0;
-        top: calc(9vw + 20px);
-        font-size: var(--size-body);
-        line-height: var(--lineh-body);
-
-        margin-left: 10px;
-        text-align: left;
-        padding: 10px 0;
-        background-color: rgb(255, 255, 255);
-    }
-    .personal-details .mobile{
-        display: inline;
-    }
-    a.header-link {
-        color: #000000;
-    }
-    img.closemenu {
-        height: 8vw;
-        vertical-align: middle;
-        margin-bottom: 2.5vw;
-    }
-    .description-home {
-        margin: 10px;
-        margin-bottom: 10px;
-        column-count: inherit;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .thumbnail h1 {
-        font-size: 16px;
-        line-height: 16px;
-    }
-    /* FRONT PAGE
-    -------------------------------------------------------------------------------*/
-    .home .all-projects {
-        margin-top: 20vw;
-    }
-    .home .all-projects a {
-        display: block;
-    } 
-    .page-template-page-projects .entry {
-        padding-top: 0px;
-    }
-    .page-template-page-projects .column-heading {
-        position: fixed;
-        top: calc(9vw + 20px);
-        width: calc(100% - 20px);
-        left: 10px;
-        background-color: rgb(255, 255, 255);
-        border-bottom: 1px solid rgb(0, 0, 0);
-        padding: 5px 0;
-        margin-top: 0;
-    }
-    .page-template-page-projects .personal-details.clearafter {
-        display: none;
-    }
-    /* SINGLE PROJECT 
-    -------------------------------------------------------------------------------*/
-    .description {
-        column-count: inherit;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 10px;
-        padding-top: 0px;
-        line-height: 100%;
-        font-size: 16px;
-        line-height: 18px;
-    }
-    .project_grid {
-        left: 10px;
-        right: 10px;
-    }
-    .project_col img {
-        display: flex;
-        width: 100%;
-    }
-    /* FOOTER
-    -------------------------------------------------------------------------------*/
-    /* FOOTER HOME */
-    .footer-home {
-        font-size: 18px;
-        margin-bottom: 10px;
-        padding-bottom: 50px;
-        padding-left: 0; /* Nessun padding laterale */
-        padding-right: 0; /* Nessun padding laterale */
-    }
-    /* FOOTER PROJECT */
-    .footer-project {
-        font-size: 18px;
-        margin-top: 0px;
-        margin-bottom: 10px;
-        padding-top: 0px;
-        padding-bottom: 50px;
-        padding-left: 10px; /* Padding laterale */
-        padding-right: 10px; /* Padding laterale */
-    }  
+main, .project-content, .project-info-section {
+  margin-top: 0;
+  padding-top: 0;
 }
-
