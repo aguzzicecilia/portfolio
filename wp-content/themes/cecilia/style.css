@@ -83,13 +83,13 @@ body {
   margin-bottom: 80px;
   background: #fff;
   border-radius: 0;
-  text-decoration: none; /* Rimuove underline e stili di link predefiniti */
+  text-decoration: none;
 }
 
 .project-thumb a {
-  display: block; /* Assicurati che l'intero blocco diventi cliccabile */
-  text-decoration: none; /* Nessun underline per l'intero blocco */
-  color: inherit; /* Mantieni il colore del testo originale */
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-media {
@@ -125,12 +125,12 @@ body {
 
 .project-collab {
   font-size: 12px;
-  font-weight: 500;  /* Più leggero rispetto al titolo */
+  font-weight: 500;
 }
 
 .project-title a {
-  color: inherit; /* Mantieni il colore del testo */
-  text-decoration: underline; /* Sottolinea il link per farlo evidenziare */
+  color: inherit;
+  text-decoration: underline;
 }
 
 .project-year {
@@ -153,11 +153,11 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 140px;
-  width: 100%; /* Assicurati che la sezione occupi tutta la larghezza */
+  width: 100%;
 }
 
 .bio-block {
-  flex: 0 0 calc(25% - 10px); /* Ogni colonna occupa 4 colonne su 16 (25% larghezza meno il gap) */
+  flex: 0 0 calc(25% - 10px);
   margin-bottom: 80px;
   font-family: 'Univers Next Pro', Arial, sans-serif;
   font-weight: 750;
@@ -196,7 +196,6 @@ body {
   font-size: 12px;
   font-family: 'Univers Next Pro', Arial, sans-serif;
   font-weight: 750;
-  font-size: 12px;
   letter-spacing: 0.24px;
 }
 
@@ -206,7 +205,7 @@ body {
 .spacer-bottom-10 { margin-bottom: 10px !important; }
 .spacer-140 { margin-top: 140px !important; }
 .spacer-80 { margin-top: 80px !important; }
-/* Block spacers (use these between blocks) */
+
 .spacer-0 { display: block; width: 100%; height: 0; }
 .spacer-10 { display: block; width: 100%; height: 10px; }
 .spacer-60 { display: block; width: 100%; height: 120px; }
@@ -239,14 +238,7 @@ body {
   gap: 0;
 }
 
-.project-info-text .project-title {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  margin-bottom: 0;
-}
-
+.project-info-text .project-title,
 .project-info-text .project-year {
   font-family: inherit;
   font-size: inherit;
@@ -283,7 +275,7 @@ body {
 
 /* ====== PROJECT MEDIA FULL ====== */
 .project-media-full {
-  width: calc(100% - 20px); /* griglia: 16 colonne + 10px margini per lato */
+  width: calc(100% - 20px);
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 0;
@@ -326,10 +318,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   gap: 10px;
-  margin-top: 0; /* blocks start at 0 */
-  margin-bottom: 0; /* use spacer utilities */
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px;
 }
 
 .project-media-double .media-item {
@@ -337,7 +326,7 @@ body {
   max-width: calc((100% - 10px) / 2);
   overflow: hidden;
   display: flex;
-  align-items: flex-start; /* align inner media to top */
+  align-items: flex-start;
   justify-content: flex-start;
   background: none;
 }
@@ -352,7 +341,6 @@ body {
   align-self: stretch;
 }
 
-/* Ensure picture wrappers fill the column */
 .project-media-double .media-item picture {
   width: 100% !important;
   max-width: 100% !important;
@@ -376,11 +364,8 @@ body {
 
 /* ====== PROJECT TEXT BLOCK ====== */
 .project-text-block {
-  max-width: 860px; /* requested max width */
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 0; /* blocks start at 0 */
-  margin-bottom: 0; /* use spacer utilities */
+  max-width: 860px;
+  margin: 0 10px;
   font-size: 12px;
   font-family: 'univers-next-pro-condensed', sans-serif;
   font-weight: 400;
@@ -388,22 +373,12 @@ body {
 }
 
 @media (max-width: 700px) {
-  /* Full block = 16 colonne -> viewport - 20px (margini) */
   .project-media-full {
     width: calc(100% - 20px);
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 0 10px;
   }
 
-  /* Due immagini empilate, ciascuna 6 colonne: (viewport - 20px) */
   .project-media-double { align-items: stretch; }
-
-  .project-media-double .media-item img,
-  .project-media-double .media-item video {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
 
   .project-media-double .media-item {
     width: calc((100% - 10px) / 2);
@@ -413,33 +388,26 @@ body {
   }
 
   .project-text-block {
-    /* spans ~6 columns on mobile; keep comfortable reading width */
     max-width: calc(100% - 20px); 
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 0; /* blocks start at 0 */
-    margin-bottom: 0; /* use spacer utilities */
+    margin: 0 10px;
     font-size: 12px;
   }
 }
 
-/* ====== RESPONSIVE: Tablet (max 768px) ====== */
+/* ====== RESPONSIVE: Tablet (max 1024px) ====== */
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* Progetti: 2 su 12 colonne */
   .project-thumb {
-    width: calc((100% - 5 * 10px) / 6); /* 12 colonne / 2 = 6 progetti per riga */
+    width: calc((100% - 5 * 10px) / 6);
     max-width: calc((100% - 5 * 10px) / 6);
     margin-bottom: 60px;
   }
 
-  /* Bio blocks: comportarsi come mobile, 6 colonne = 50% */
   .bio-block {
     flex: 0 0 calc((100% - 10px) / 2);
     max-width: calc((100% - 10px) / 2);
     margin-bottom: 60px;
   }
 
-  /* Footer columns: uguale a mobile (2 colonne su 12) */
   .footer-col {
     flex: 0 0 calc((100% - 10px) / 2);
     max-width: calc((100% - 10px) / 2);
@@ -472,10 +440,6 @@ body {
     flex: 0 0 calc((100% - 10px) / 2);
     max-width: calc((100% - 10px) / 2);
     margin-bottom: 60px;
-    font-family: 'Univers Next Pro', Arial, sans-serif;
-    font-weight: 750;
-    font-size: 12px;
-    letter-spacing: 0.24px;
   }
 
   .site-footer {
@@ -486,10 +450,6 @@ body {
   .footer-col {
     flex: 0 0 calc((100% - 10px) / 2);
     max-width: calc((100% - 10px) / 2);
-    font-family: 'Univers Next Pro', Arial, sans-serif;
-    font-weight: 750;
-    font-size: 12px;
-    letter-spacing: 0.24px;
   }
 
   .project-info-block {
@@ -518,14 +478,10 @@ body {
   .project-media-double {
     flex-direction: column;
     gap: 10px;
-    margin-top: 0; /* blocks start at 0 */
-    margin-bottom: 0; /* use spacer utilities */
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 0 10px;
   }
 
   .project-media-double .media-item {
-    /* mobile: 6 colonne = contenuto pieno (100% - 20px) */
     width: 100%;
     max-width: 100%;
     align-self: stretch;
@@ -537,7 +493,7 @@ main, .project-content, .project-info-section {
   padding-top: 0;
 }
 
-/* ====== VIEWPORT VARIANTS (Desktop/Mobile) ====== */
+/* ====== VIEWPORT VARIANTS ====== */
 .desktop-only { display: block !important; }
 .mobile-only { display: none !important; }
 
@@ -546,7 +502,7 @@ main, .project-content, .project-info-section {
   .mobile-only { display: block !important; }
 }
 
-/* ====== NO-MARGINS TEST VARIANT ====== */
+/* ====== NO-MARGINS VARIANT ====== */
 .no-margins .project-media-full {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -554,15 +510,12 @@ main, .project-content, .project-info-section {
 }
 
 .no-margins .project-media-double {
-  margin-left: 10px; /* restore margins only for 2-col */
-  margin-right: 10px;
+  margin: 0 10px;
 }
 
 .no-margins .project-media-double .media-item img,
 .no-margins .project-media-double .media-item video {
   width: 100%;
-  margin-left: 0;
-  margin-right: 0;
 }
 
 @media (max-width: 700px) {
@@ -573,12 +526,23 @@ main, .project-content, .project-info-section {
   }
 
   .no-margins .project-media-double {
-    margin-left: 10px; /* restore margins only for 2-col (mobile) */
-    margin-right: 10px;
+    margin: 0 10px;
   }
 
   .no-margins .project-media-double .media-item img,
   .no-margins .project-media-double .media-item video {
     width: calc(100% - 20px);
   }
+}
+
+/* ====== PAGEBUILDER LINKS ====== */
+.project-text-block a {
+  color: #000;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.project-text-block a:hover {
+  color: #888;
+  text-decoration: underline;
 }
